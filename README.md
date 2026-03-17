@@ -35,9 +35,10 @@ El robot construye un mapa del entorno mientras se localiza simultáneamente.
 ## 🧭 Planificación de rutas
 
 - RRT (Rapidly-exploring Random Trees)
+![RRT](carrera_khepera.gif)
 - RDP (Simplificación de trayectorias)
 - Campos Potenciales
-![EKF](path_potencial.gif)
+![PTH](path_potencial.gif)
 Permite generar rutas eficientes en entornos con obstáculos.
 
 ## 🚀 Autor
