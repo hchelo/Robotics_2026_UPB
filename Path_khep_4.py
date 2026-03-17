@@ -31,7 +31,7 @@ with open(ruta_mapa, 'r') as f:
         valores = linea.replace('\t', ' ').split()
         mapa_raw.append([float(v) for v in valores])
 
-print(f"  Archivo leído: {ruta_mapa}")
+print(f"  Archivo leido: {ruta_mapa}")
 print(f"  Filas={len(mapa_raw)}  Cols={len(mapa_raw[0])}")
 
 # ================================================================
@@ -54,9 +54,9 @@ pos_inicio = np.argwhere(M_raw == 2)
 pos_meta   = np.argwhere(M_raw == -1)
 
 if len(pos_inicio) == 0:
-    raise ValueError("No se encontró el inicio (valor 2) en el mapa")
+    raise ValueError("No se encontro el inicio (valor 2) en el mapa")
 if len(pos_meta) == 0:
-    raise ValueError("No se encontró la meta (valor -1) en el mapa")
+    raise ValueError("No se encontro la meta (valor -1) en el mapa")
 
 # [row, col] → xi=col, yi=row  (para indexar M[x,y])
 xi = int(pos_inicio[0, 1])   # columna = x
@@ -71,10 +71,10 @@ M[M == -1] = 0
 print("=" * 55)
 print("   MAPA CARGADO")
 print("=" * 55)
-print(f"  Tamaño mapa : {ANCHO} × {ALTO} celdas (≡ 100×100 cm, 2cm/celda)")
+print(f"  Tamano mapa : {ANCHO} × {ALTO} celdas (≡ 100×100 cm, 2cm/celda)")
 print(f"  Inicio (xi,yi) : ({xi}, {yi})")
 print(f"  Meta   (xg,yg) : ({xg}, {yg})")
-print(f"  Obstáculos     : {int(np.sum(M==1))} celdas")
+print(f"  Obstaculos     : {int(np.sum(M==1))} celdas")
 print("=" * 55)
 
 # ================================================================
@@ -181,7 +181,7 @@ WP_y = path_y[waypoints_idx]
 # ================================================================
 #  REPORTE EN CONSOLA
 # ================================================================
-print(f"📍 Waypoints detectados: {len(WP_x)}\n")
+print(f" Waypoints detectados: {len(WP_x)}\n")
 print(f"  {'#':>2}  {'X(cel)':>6}  {'Y(cel)':>6}  {'X(cm)':>6}  {'Y(cm)':>6}  {'θ':>7}")
 print("  " + "─"*45)
 for k in range(len(WP_x)):
@@ -220,7 +220,7 @@ ax.set_xlabel("x [celdas]"); ax.set_ylabel("y [celdas]")
 ax = axes[0,1]
 ax.imshow(M_dilat.T, origin='lower', extent=ext, cmap='Oranges', vmin=0, vmax=1.5)
 ax.plot(xi, yi, 'go', ms=10); ax.plot(xg, yg, 'r*', ms=12)
-ax.set_title(f"Obstáculos Dilatados (r={RADIO_DILATE} celdas)")
+ax.set_title(f"Obstaculos Dilatados (r={RADIO_DILATE} celdas)")
 ax.set_xlabel("x [celdas]"); ax.set_ylabel("y [celdas]")
 
 # 3. Potencial de atracción
@@ -228,7 +228,7 @@ ax = axes[0,2]
 im3 = ax.imshow(UA.T, origin='lower', extent=ext, cmap='viridis')
 plt.colorbar(im3, ax=ax, fraction=0.046)
 ax.plot(xi, yi, 'go', ms=10); ax.plot(xg, yg, 'r*', ms=12)
-ax.set_title("Potencial Atracción $U_A$")
+ax.set_title("Potencial Atraccion $U_A$")
 ax.set_xlabel("x [celdas]"); ax.set_ylabel("y [celdas]")
 
 # 4. Potencial de repulsión
@@ -237,7 +237,7 @@ UR_vis = np.copy(UR); UR_vis[UR_vis > 50] = 50
 im4 = ax.imshow(UR_vis.T, origin='lower', extent=ext, cmap='hot')
 plt.colorbar(im4, ax=ax, fraction=0.046)
 ax.plot(xi, yi, 'go', ms=10); ax.plot(xg, yg, 'r*', ms=12)
-ax.set_title("Potencial Repulsión $U_R$")
+ax.set_title("Potencial Repulsion $U_R$")
 ax.set_xlabel("x [celdas]"); ax.set_ylabel("y [celdas]")
 
 # 5. Potencial total + gradiente
@@ -511,7 +511,7 @@ plt.style.use("dark_background")
 fig2, ax2 = plt.subplots(figsize=(9, 9))
 fig2.patch.set_facecolor('#0d0d0d')
 ax2.set_facecolor('#080808')
-fig2.suptitle("Robot Khepera — Cinemática Inversa por Pulsos\n"
+fig2.suptitle("Robot Khepera — Cinematica Inversa por Pulsos\n"
               "🟡 Orientar   🟢 Desplazar   (3 pasos por waypoint)",
               fontsize=11, color='white')
 
